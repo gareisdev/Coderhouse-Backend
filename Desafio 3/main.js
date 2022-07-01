@@ -25,6 +25,6 @@ app.get("/productoRandom", (req, res) => {
     res.status(200).send( { product : randomProduct} )
 });
 
-app.listen(3000, () => {
+app.listen(8080, () => {
     console.log("Servidor corriendo en el puerto 3000");
 })
