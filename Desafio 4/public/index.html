@@ -1,14 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de carga</title>
-</head>
-<body>
-    <form action="/uploadInfo" method="post">
-        
-    </form>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <!-- CSS only -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+            crossorigin="anonymous"
+        />
+        <title>Products Form</title>
+    </head>
+    <body>
+        <div class="container p-5">
+            <form action="/api/productos/" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="title"
+                            name="title"
+                            placeholder="Title"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="price"
+                            name="price"
+                            placeholder="Price"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="thumbnail">Thumbnail</label>
+                    <input
+                        type="url"
+                        class="form-control"
+                        id="thumbnail"
+                        name="thumbnail"
+                        placeholder="http://www.example.com/image.jpg"
+                    />
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">
+                    Create product
+                </button>
+            </form>
+        </div>
+    </body>
 </html>

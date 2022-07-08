@@ -1,0 +1,82 @@
+[
+  {
+    "_id": "ac115d23-a731-439e-a736-cd2967572e5e",
+    "colId": "57038917-f201-4dc5-ba40-16757ee977ab",
+    "containerId": "",
+    "name": "GetProducts",
+    "url": "{{BASE-URL}}/api/productos/",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2022-07-07T23:01:55.220Z",
+    "modified": "2022-07-07T23:05:12.138Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "2ef27720-770d-486f-b53e-332690ee1c88",
+    "colId": "57038917-f201-4dc5-ba40-16757ee977ab",
+    "containerId": "",
+    "name": "AddProduct",
+    "url": "{{BASE-URL}}/api/productos/",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2022-07-07T23:05:33.372Z",
+    "modified": "2022-07-07T23:11:07.565Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"title\": \"pure de tomate\",\n  \"price\": 100.50,\n  \"thumbnail\": \"http://www.example.com\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "5de62450-048f-49bc-b67e-52dff9b63acc",
+    "colId": "57038917-f201-4dc5-ba40-16757ee977ab",
+    "containerId": "",
+    "name": "GetProduct",
+    "url": "{{BASE-URL}}/api/productos/16",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2022-07-07T23:13:05.786Z",
+    "modified": "2022-07-08T01:37:07.270Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "f362d2ba-a059-4620-9827-ba30dad861cd",
+    "colId": "57038917-f201-4dc5-ba40-16757ee977ab",
+    "containerId": "",
+    "name": "UpdateProduct",
+    "url": "{{BASE-URL}}/api/productos/15",
+    "method": "PUT",
+    "sortNum": 50000,
+    "created": "2022-07-07T23:17:12.686Z",
+    "modified": "2022-07-07T23:52:34.040Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"title\": \"Pan con manteca\",\n  \"price\": 10000,\n  \"thumbnail\": \"http://www.example.com\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "d0f43cf7-ec13-4fc5-a0fe-00de5082bac4",
+    "colId": "57038917-f201-4dc5-ba40-16757ee977ab",
+    "containerId": "",
+    "name": "DeleteProduct",
+    "url": "{{BASE-URL}}/api/productos/13",
+    "method": "DELETE",
+    "sortNum": 60000,
+    "created": "2022-07-07T23:56:08.712Z",
+    "modified": "2022-07-08T01:22:51.631Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]

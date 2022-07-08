@@ -1,73 +1,96 @@
-let {products} = require("./../data/products_data");
+let listProducts = require("./../data/products_data");
 
-const getProducts = (req, res) => {
-    res.status(200).send( products );
-}
-
-const getProduct = (req, res) => {
-    const productID = req.body.product;
-    
-    const product = products.filter( p => p.title === productID);
-    
-    if(!product){
-        res.status(404).send({error: "Producto no encontrado"});
-        return
+class ProductsController {
+    constructor(data) {
+        this.products = listProducts.products;
     }
 
-    res.send(product);
-}
-
-const addProduct = (req, res) => {
-    const { title, price, thumbnail } = req.body;
-
-    if( !title || !price || !thumbnail){
-        res.status(400);
-        return
+    getProducts(req, res) {
+        res.status(200).send(this.products);
     }
 
-    products.push({title, price, thumbnail});
-    res.status(200);
-}
+    getProduct(req, res) {
+        const productID = parseInt(req.params.id);
+        const product = this.products.filter((p) => p.id === productID);
 
-const updateProduct = (req, res) => {
-    const productID = req.body.product;
-    
-    const product = products.findIndex( p => p.title === productID);
+        if (!product.length) {
+            res.status(404).send({ error: "Producto no encontrado" });
+            return;
+        }
 
-    if(product < 0){
-        res.status(404).send({error: "Producto no encontrado"});
-        return
-    }
-    
-    const { title, price, thumbnail } = req.body;
-
-    if( !title || !price || !thumbnail){
-        res.status(400);
-        return
+        res.send(product[0]);
     }
 
-    products[product] = {title, price, thumbnail};
-    res.status(200);
-}
+    addProduct(req, res) {
+        const title = req.body.title;
+        const price = parseFloat(req.body.price);
+        const thumbnail = req.body.thumbnail;
 
-const deleteProduct = (req, res) => {
-    const productID = req.body.product;
-    
-    const product = products.findIndex( p => p.title === productID);
-    
-    if(product < 0){
-        res.status(404).send({error: "Producto no encontrado"});
-        return
+        if (!title || !price || !thumbnail) {
+            res.status(400).send(
+                "Las claves 'title', 'price' y 'thumbnail' son obligatorias"
+            );
+            return;
+        }
+        const id = this._getLastId(this.products) + 1;
+
+        const product = { id, title, price, thumbnail };
+        this.products.push(product);
+        res.status(200).send(product);
     }
 
-    products.splice(product, 1);
-}
+    updateProduct(req, res) {
+        const productID = parseInt(req.params.id);
 
+        const productIndex = this.products.findIndex((p) => p.id === productID);
+
+        if (productIndex < 0) {
+            res.status(404).send({ error: "Producto no encontrado" });
+            return;
+        }
+
+        const title = req.body.title;
+        const price = req.body.price;
+        const thumbnail = req.body.thumbnail;
+
+        if (!title || !price || !thumbnail) {
+            res.status(400).send(
+                "Las claves 'title', 'price' y 'thumbnail' son obligatorias"
+            );
+            return;
+        }
+
+        this.products[productIndex] = {
+            id: productID,
+            title,
+            price,
+            thumbnail,
+        };
+        res.status(200).send(this.products[productIndex]);
+    }
+
+    deleteProduct = (req, res) => {
+        const productID = parseInt(req.params.id);
+
+        const product = this.products.findIndex((p) => p.id === productID);
+
+        if (product < 0) {
+            res.status(404).send({ error: "Producto no encontrado" });
+            return;
+        }
+
+        const removed = this.products.splice(product, 1);
+        res.status(200).send(removed);
+    };
+
+    // Auxiliary functions
+    _getLastId(products) {
+        if (products.length === 0) return 0;
+        const productos_id = products.map((p) => p.id);
+        return Math.max(...productos_id);
+    }
+}
 
 module.exports = {
-    getProducts,
-    getProduct,
-    addProduct,
-    updateProduct,
-    deleteProduct
-}
+    ProductsController,
+};
