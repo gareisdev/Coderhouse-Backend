@@ -1,0 +1,11 @@
+form(action="/productos" method="post")
+    div(class="form-group")
+        label(for="title") Titulo
+        input(type="text" class="form-control" id="exampleInputEmail1" name="title" placeholder="Ingresa el titulo")
+    div(class="form-group")
+        label(for="price") Precio
+        input(type="text" class="form-control" id="price" name="price" placeholder="Ingresa el precio")
+    div(class="form-group")
+        label(for="thumbnail") Imagen
+        input(type="url" class="form-control" id="thumbnail" name="thumbnail" placeholder="Ingresa la url de la imagen")
+    button(type="submit" class="btn btn-primary mt-3") Agregar

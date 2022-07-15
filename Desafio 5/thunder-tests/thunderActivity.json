@@ -1,0 +1,30 @@
+[
+  {
+    "_id": "3ebf572e-65a4-4ad8-bc35-67f145284aa6",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:8080/",
+    "url": "localhost:8080/",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-07-14T19:36:33.287Z",
+    "modified": "2022-07-14T19:36:33.333Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "b665c143-aeaf-4536-873d-2f5aa76378da",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:8080/api/productos",
+    "url": "localhost:8080/api/productos",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-07-14T19:36:50.947Z",
+    "modified": "2022-07-14T19:36:51.061Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]
