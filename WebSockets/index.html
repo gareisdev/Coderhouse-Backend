@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat con Socket.io</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <h1 class="text-center p-4">myChat</h1>
+
+    <form class="p-4" id="form-messages">
+      <div>
+        <label for="message-author" class="form-label">Autor</label>
+        <input
+          type="text"
+          name="message-author"
+          id="message-author"
+          class="form-control"
+          placeholder="Autor del mensaje"
+          aria-describedby="helpId"
+        />
+      </div>
+      <div>
+        <label for="message-content" class="form-label">Mensaje</label>
+        <textarea
+          class="form-control"
+          name="message-content"
+          id="message-content"
+          rows="3"
+        ></textarea>
+      </div>
+
+      <div class="d-grid gap-2 mt-3">
+        <button
+          type="submit"
+          name="send-message"
+          id="send-message"
+          class="btn btn-primary"
+        >
+          Enviar mensaje
+        </button>
+      </div>
+    </form>
+
+    <div class="container">
+        <div id="messages">
+        </div>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>
